@@ -59,6 +59,8 @@ public class ScaffoldActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
+
+    //a
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
