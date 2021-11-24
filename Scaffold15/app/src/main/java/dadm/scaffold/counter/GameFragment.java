@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.TextView;
 
 import dadm.scaffold.BaseFragment;
 import dadm.scaffold.R;
@@ -23,6 +24,8 @@ import dadm.scaffold.space.SpaceShipPlayer;
 public class GameFragment extends BaseFragment implements View.OnClickListener {
     private GameEngine theGameEngine;
 
+    public TextView lifesText;
+
     public GameFragment() {
     }
 
@@ -37,6 +40,7 @@ public class GameFragment extends BaseFragment implements View.OnClickListener {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         view.findViewById(R.id.btn_play_pause).setOnClickListener(this);
+        lifesText = view.findViewById(R.id.text_lifes);
         final ViewTreeObserver observer = view.getViewTreeObserver();
         observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
             @Override
@@ -129,5 +133,9 @@ public class GameFragment extends BaseFragment implements View.OnClickListener {
             theGameEngine.pauseGame();
             button.setText(R.string.resume);
         }
+    }
+
+    public void changeTextLifes(int v){
+        lifesText.setText("Vidas: " + v);
     }
 }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import dadm.scaffold.ScaffoldActivity;
 import dadm.scaffold.input.InputController;
 import dadm.scaffold.sound.GameEvent;
 import dadm.scaffold.sound.SoundManager;
@@ -26,6 +27,8 @@ public class GameEngine {
     private final GameView theGameView;
 
     public Random random = new Random();
+
+    public int vidasPlayer = 0;
 
     private SoundManager soundManager;
 
@@ -74,6 +77,8 @@ public class GameEngine {
         // Start the drawing thread
         theDrawThread = new DrawThread(this);
         theDrawThread.start();
+
+
     }
 
     public void stopGame() {
@@ -184,4 +189,18 @@ public class GameEngine {
         // Also the sound manager
         soundManager.playSoundForGameEvent(gameEvent);
     }
+
+    public void llamarRunnableVidas(int v){
+        vidasPlayer = v;
+        mainActivity.runOnUiThread(drawTextLifes);
+    }
+
+    public final Runnable drawTextLifes = new Runnable() {
+        @Override
+        public void run() {
+            //Cogemos la mainactivity y llamamos a textprintvidas o algoas i
+            ((ScaffoldActivity) mainActivity).printLifes(vidasPlayer);
+        }
+    };
+
 }

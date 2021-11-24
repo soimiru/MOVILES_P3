@@ -46,6 +46,11 @@ public class ScaffoldActivity extends AppCompatActivity {
                 .commit();
     }
 
+    public void printLifes(int v){
+        GameFragment fragment = (GameFragment) getSupportFragmentManager().findFragmentByTag(TAG_FRAGMENT);
+        fragment.changeTextLifes(v);
+    }
+
     @Override
     public void onBackPressed() {
         final BaseFragment fragment = (BaseFragment) getSupportFragmentManager().findFragmentByTag(TAG_FRAGMENT);

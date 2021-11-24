@@ -17,6 +17,8 @@ public class SpaceShipPlayer extends Sprite {
     List<Bullet> bullets = new ArrayList<Bullet>();
     private long timeSinceLastFire;
 
+    public int lifes = 3;
+
     private int maxX;
     private int maxY;
     private double speedFactor;
@@ -98,7 +100,13 @@ public class SpaceShipPlayer extends Sprite {
     @Override
     public void onCollision(GameEngine gameEngine, ScreenGameObject otherObject) {
         if (otherObject instanceof Asteroid) {
-            gameEngine.removeGameObject(this);
+            if (lifes > 0){
+                lifes--;
+            }
+            else{
+                gameEngine.removeGameObject(this);
+            }
+            gameEngine.llamarRunnableVidas(lifes);
             //gameEngine.stopGame();
             Asteroid a = (Asteroid) otherObject;
             a.removeObject(gameEngine);
