@@ -55,7 +55,7 @@ public class QuadTree {
                     ScreenGameObject objectB = mGameObjects.get(j);
                     if (objectA.checkCollision(objectB)) {
                         Collision c = Collision.init(objectA, objectB);
-                        //if (!hasBeenDetected(detectedCollisions, c))
+                        if (!hasBeenDetected(detectedCollisions, c))
                         {
                             detectedCollisions.add(c);
                             objectA.onCollision(gameEngine, objectB);
