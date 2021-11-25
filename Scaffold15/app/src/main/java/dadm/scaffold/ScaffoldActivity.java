@@ -1,5 +1,6 @@
 package dadm.scaffold;
 
+import android.content.Intent;
 import android.media.AudioManager;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -64,6 +65,14 @@ public class ScaffoldActivity extends AppCompatActivity {
 
     //FIN MÉTODOS PINTAR UI
 
+    //MÉTODO GAMEOVER-> Llama a la activity final y envía la información.
+    public void gameOver(int p, int e) {
+        Intent intent = new Intent(this, FinalActivity.class);
+        intent.putExtra("Puntos", p);
+        intent.putExtra("Enemigos", e);
+        startActivity(intent);
+    }
+
     @Override
     public void onBackPressed() {
         final BaseFragment fragment = (BaseFragment) getSupportFragmentManager().findFragmentByTag(TAG_FRAGMENT);
@@ -100,4 +109,6 @@ public class ScaffoldActivity extends AppCompatActivity {
             }
         }
     }
+
+
 }

@@ -103,10 +103,11 @@ public class SpaceShipPlayer extends Sprite {
     @Override
     public void onCollision(GameEngine gameEngine, ScreenGameObject otherObject) {
         if (otherObject instanceof Asteroid) {
-            if (lifes > 0){
+            if (lifes > 1){
                 lifes--;
             }
             else{
+                gameEngine.llamarRunnableGameOver();
                 gameEngine.removeGameObject(this);
             }
             gameEngine.llamarRunnableVidas(lifes);

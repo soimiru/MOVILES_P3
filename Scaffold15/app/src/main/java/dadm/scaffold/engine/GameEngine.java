@@ -207,6 +207,9 @@ public class GameEngine {
         puntos = p;
         mainActivity.runOnUiThread(drawTextPoints);
     }
+    public void llamarRunnableGameOver(){
+        mainActivity.runOnUiThread(gameOver);
+    }
 
 
     //Llama al método correspondiente del Scaffold Activity
@@ -226,6 +229,13 @@ public class GameEngine {
         @Override
         public void run() {
             ((ScaffoldActivity) mainActivity).printPoints(puntos);
+        }
+    };
+
+    public final Runnable gameOver = new Runnable() {
+        @Override
+        public void run() {
+            ((ScaffoldActivity) mainActivity).gameOver(puntos, enemigosEliminados);
         }
     };
 
