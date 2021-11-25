@@ -2,10 +2,13 @@ package dadm.scaffold.input;
 
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 
 import dadm.scaffold.R;
 
 public class JoystickInputController extends InputController {
+
+    private ImageView joystickInterno, joystickMini;
 
     private float startingPositionX;
     private float startingPositionY;
@@ -14,8 +17,9 @@ public class JoystickInputController extends InputController {
 
     public JoystickInputController(View view) {
         view.findViewById(R.id.joystick_main).setOnTouchListener(new JoystickTouchListener());
-        view.findViewById(R.id.joystick_touch).setOnTouchListener(new FireButtonTouchListener());
-
+        view.findViewById(R.id.joyStick_Touch).setOnTouchListener(new FireButtonTouchListener());
+        joystickInterno = view.findViewById(R.id.imageJoystick);
+        joystickMini = view.findViewById(R.id.joyStick_Mini);
         double pixelFactor = view.getHeight() / 400d;
         maxDistance = 50*pixelFactor;
     }
@@ -25,28 +29,42 @@ public class JoystickInputController extends InputController {
         public boolean onTouch(View v, MotionEvent event) {
             int action = event.getActionMasked();
             if (action == MotionEvent.ACTION_DOWN) {
+                joystickInterno.setVisibility(View.VISIBLE);
                 startingPositionX = event.getX(0);
                 startingPositionY = event.getY(0);
+                joystickInterno.setX(startingPositionX - 50);
+                joystickInterno.setY(startingPositionY - 50);
             }
             else if (action == MotionEvent.ACTION_UP) {
                 horizontalFactor = 0;
                 verticalFactor = 0;
+                joystickInterno.setVisibility(View.INVISIBLE);
+                joystickMini.setVisibility(View.INVISIBLE);
             }
             else if (action == MotionEvent.ACTION_MOVE) {
                 // Get the proportion to the max
+                joystickMini.setVisibility(View.VISIBLE);
                 horizontalFactor = (event.getX(0) - startingPositionX) / maxDistance;
                 if (horizontalFactor > 1) {
                     horizontalFactor = 1;
+                    joystickMini.setX(event.getX(0) + 50);
+                    joystickMini.setY(event.getY(0));
                 }
                 else if (horizontalFactor < -1) {
                     horizontalFactor = -1;
+                    joystickMini.setX(event.getX(0) - 50);
+                    joystickMini.setY(event.getY(0));
                 }
                 verticalFactor = (event.getY(0) - startingPositionY) / maxDistance;
-                if (verticalFactor > 1) {
+                if (verticalFactor > 1) { //Abajo
                     verticalFactor = 1;
+                    joystickMini.setX(event.getX(0));
+                    joystickMini.setY(event.getY(0) - 50);
                 }
-                else if (verticalFactor < -1) {
+                else if (verticalFactor < -1) { //Arriba
                     verticalFactor = -1;
+                    joystickMini.setX(event.getX(0));
+                    joystickMini.setY(event.getY(0) + 50);
                 }
             }
             return true;

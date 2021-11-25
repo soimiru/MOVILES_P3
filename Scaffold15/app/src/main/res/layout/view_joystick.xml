@@ -1,17 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <View android:id="@+id/joystick_main"
-        android:layout_height="match_parent"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_weight="1"
-        />
-    <View android:id="@+id/joystick_touch"
         android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        />
+        >
+        <View android:id="@+id/joystick_main"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            />
+        <ImageButton
+            android:id="@+id/joyStick_Touch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250dp"
+            android:src="@drawable/a10000" />
+        <ImageView
+            android:id="@+id/imageJoystick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/circulio"
+            android:visibility="invisible"
+            tools:visibility="invisible"
+            android:layout_marginRight="-30dp"/>
+        <ImageButton
+            android:id="@+id/joyStick_Mini"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250dp"
+            android:src="@drawable/a10000"
+            android:visibility="invisible"
+            tools:visibility="invisible"
+            android:layout_marginRight="-50dp"
+            />
+
+
+
+    </LinearLayout>
+
+
+
 </LinearLayout>
