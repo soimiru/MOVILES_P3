@@ -235,7 +235,7 @@ public class GameEngine {
     public final Runnable gameOver = new Runnable() {
         @Override
         public void run() {
-            ((ScaffoldActivity) mainActivity).gameOver(puntos, enemigosEliminados);
+            ((ScaffoldActivity) mainActivity).endScreen(puntos, enemigosEliminados);
         }
     };
 

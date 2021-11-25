@@ -22,7 +22,7 @@ import dadm.scaffold.space.SpaceShipPlayer;
 
 
 public class GameFragment extends BaseFragment implements View.OnClickListener {
-    private GameEngine theGameEngine;
+    public GameEngine theGameEngine;
 
     public TextView lifesText;
     public TextView enemiesDownText;

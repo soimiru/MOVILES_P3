@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import dadm.scaffold.counter.FinalFragment;
 import dadm.scaffold.counter.GameFragment;
 import dadm.scaffold.counter.MainMenuFragment;
 import dadm.scaffold.sound.SoundManager;
@@ -39,6 +40,19 @@ public class ScaffoldActivity extends AppCompatActivity {
         navigateToFragment( new GameFragment());
     }
 
+    //CARGA EL FRAGMENTO CON LA INFORMACIÓN DE LA PARTIDA
+    public void endScreen(int po, int en){
+        FinalFragment fg = new FinalFragment();
+        fg.puntos = po;
+        fg.enemigos = en;
+        navigateToFragment(fg);
+    }
+
+    //CARGA EL MENÚ PRINCIPAL
+    public void exitFinal(){
+        navigateToFragment( new MainMenuFragment());
+    }
+
     private void navigateToFragment(BaseFragment dst) {
         getSupportFragmentManager()
                 .beginTransaction()
@@ -65,13 +79,6 @@ public class ScaffoldActivity extends AppCompatActivity {
 
     //FIN MÉTODOS PINTAR UI
 
-    //MÉTODO GAMEOVER-> Llama a la activity final y envía la información.
-    public void gameOver(int p, int e) {
-        Intent intent = new Intent(this, FinalActivity.class);
-        intent.putExtra("Puntos", p);
-        intent.putExtra("Enemigos", e);
-        startActivity(intent);
-    }
 
     @Override
     public void onBackPressed() {

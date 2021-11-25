@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".FinalActivity"
-            android:exported="false" />
-        <activity
             android:name=".ScaffoldActivity"
             android:label="@string/title_activity_main"
             android:screenOrientation="sensorLandscape">
