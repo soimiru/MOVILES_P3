@@ -153,4 +153,6 @@ public class GameFragment extends BaseFragment implements View.OnClickListener {
     public void changeTextPoints(int p){
         pointsText.setText("Puntos: " + p);
     }
+
+    public void invokeStopGame(){theGameEngine.stopGame();}
 }
