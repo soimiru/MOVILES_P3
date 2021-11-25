@@ -30,7 +30,7 @@ public class SpaceShipPlayer extends Sprite {
         super(gameEngine, R.drawable.dragonite1);
         speedFactor = pixelFactor * 100d / 1000d; // We want to move at 100px per second on a 400px tall screen
         maxX = gameEngine.width - width;
-        maxY = gameEngine.height - height;
+        maxY = gameEngine.height - height/2;    //CAMBIADO
 
         initBulletPool(gameEngine);
     }
@@ -56,7 +56,7 @@ public class SpaceShipPlayer extends Sprite {
     @Override
     public void startGame() {
         positionX = maxX / 2;
-        positionY = maxY / 2;
+        positionY = maxY -50;   //CAMBIADO
     }
 
     @Override
