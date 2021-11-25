@@ -12,6 +12,8 @@ public class Bullet extends Sprite {
 
     private SpaceShipPlayer parent;
 
+    public int puntosAux, enemigosAux = 0;
+
     public Bullet(GameEngine gameEngine){
         super(gameEngine, R.drawable.bullet);
 
@@ -48,11 +50,20 @@ public class Bullet extends Sprite {
     public void onCollision(GameEngine gameEngine, ScreenGameObject otherObject) {
         if (otherObject instanceof Asteroid) {
             // Remove both from the game (and return them to their pools)
+
+            //AUMENTAMOS LOS PUNTOS Y LOS ENEMIGOS ELIMINADOS
+            puntosAux = parent.points+50;
+            enemigosAux = parent.enemiesDown+1;
+            parent.points = puntosAux;
+            parent.enemiesDown = enemigosAux;
+            gameEngine.llamarRunnablePuntos(puntosAux);
+            gameEngine.llamarRunnableEnemigos(enemigosAux);
+
             removeObject(gameEngine);
             Asteroid a = (Asteroid) otherObject;
             a.removeObject(gameEngine);
             gameEngine.onGameEvent(GameEvent.AsteroidHit);
-            // Add some score
+
         }
     }
 }

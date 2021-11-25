@@ -46,10 +46,23 @@ public class ScaffoldActivity extends AppCompatActivity {
                 .commit();
     }
 
+    //METODOS PARA PINTAR EL TEXTO DE LA UI. LLaman a los métodos que hay en GameFragment
     public void printLifes(int v){
         GameFragment fragment = (GameFragment) getSupportFragmentManager().findFragmentByTag(TAG_FRAGMENT);
         fragment.changeTextLifes(v);
     }
+
+    public void printEnemies(int e){
+        GameFragment fragment = (GameFragment) getSupportFragmentManager().findFragmentByTag(TAG_FRAGMENT);
+        fragment.changeTextEnemies(e);
+    }
+
+    public void printPoints(int p){
+        GameFragment fragment = (GameFragment) getSupportFragmentManager().findFragmentByTag(TAG_FRAGMENT);
+        fragment.changeTextPoints(p);
+    }
+
+    //FIN MÉTODOS PINTAR UI
 
     @Override
     public void onBackPressed() {

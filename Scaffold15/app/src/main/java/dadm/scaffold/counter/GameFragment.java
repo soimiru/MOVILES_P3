@@ -25,6 +25,8 @@ public class GameFragment extends BaseFragment implements View.OnClickListener {
     private GameEngine theGameEngine;
 
     public TextView lifesText;
+    public TextView enemiesDownText;
+    public TextView pointsText;
 
     public GameFragment() {
     }
@@ -40,7 +42,11 @@ public class GameFragment extends BaseFragment implements View.OnClickListener {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         view.findViewById(R.id.btn_play_pause).setOnClickListener(this);
+
         lifesText = view.findViewById(R.id.text_lifes);
+        enemiesDownText = view.findViewById(R.id.text_enemiesDown);
+        pointsText = view.findViewById(R.id.text_points);
+
         final ViewTreeObserver observer = view.getViewTreeObserver();
         observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
             @Override
@@ -135,7 +141,16 @@ public class GameFragment extends BaseFragment implements View.OnClickListener {
         }
     }
 
+    //METODOS PARA CAMBIAR EL TEXTO DE LA UI. Estos métodos son invocados desde ScaffoldActivity
     public void changeTextLifes(int v){
         lifesText.setText("Vidas: " + v);
+    }
+
+    public void changeTextEnemies(int e){
+        enemiesDownText.setText("Enemigos eliminados: " + e);
+    }
+
+    public void changeTextPoints(int p){
+        pointsText.setText("Puntos: " + p);
     }
 }

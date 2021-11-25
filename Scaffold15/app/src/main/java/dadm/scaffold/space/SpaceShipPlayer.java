@@ -18,6 +18,8 @@ public class SpaceShipPlayer extends Sprite {
     private long timeSinceLastFire;
 
     public int lifes = 3;
+    public int enemiesDown = 0;
+    public int points = 0;
 
     private int maxX;
     private int maxY;

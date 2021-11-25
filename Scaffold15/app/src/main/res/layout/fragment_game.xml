@@ -16,7 +16,27 @@
         android:id="@+id/text_lifes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Vidas: 3"/>
+        android:text="Vidas: 3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textSize="16dp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/text_enemiesDown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enemigos eliminados: 0"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/text_points"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Puntos: 0"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"/>
 
     <Button
         android:layout_gravity="top|right"

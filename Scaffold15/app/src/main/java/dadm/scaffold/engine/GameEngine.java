@@ -29,6 +29,8 @@ public class GameEngine {
     public Random random = new Random();
 
     public int vidasPlayer = 0;
+    public int enemigosEliminados = 0;
+    public int puntos = 0;
 
     private SoundManager soundManager;
 
@@ -190,16 +192,40 @@ public class GameEngine {
         soundManager.playSoundForGameEvent(gameEvent);
     }
 
+
+    //METODOS PARA EL PINTADO DE LA UI.
+    //Llama al runnable
     public void llamarRunnableVidas(int v){
         vidasPlayer = v;
         mainActivity.runOnUiThread(drawTextLifes);
     }
+    public void llamarRunnableEnemigos(int e){
+        enemigosEliminados = e;
+        mainActivity.runOnUiThread(drawTextEnemies);
+    }
+    public void llamarRunnablePuntos(int p){
+        puntos = p;
+        mainActivity.runOnUiThread(drawTextPoints);
+    }
 
+
+    //Llama al método correspondiente del Scaffold Activity
     public final Runnable drawTextLifes = new Runnable() {
         @Override
         public void run() {
-            //Cogemos la mainactivity y llamamos a textprintvidas o algoas i
             ((ScaffoldActivity) mainActivity).printLifes(vidasPlayer);
+        }
+    };
+    public final Runnable drawTextEnemies = new Runnable() {
+        @Override
+        public void run() {
+            ((ScaffoldActivity) mainActivity).printEnemies(enemigosEliminados);
+        }
+    };
+    public final Runnable drawTextPoints = new Runnable() {
+        @Override
+        public void run() {
+            ((ScaffoldActivity) mainActivity).printPoints(puntos);
         }
     };
 
