@@ -20,24 +20,27 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="250dp"
             android:src="@drawable/a10000" />
+
+
         <ImageView
             android:id="@+id/imageJoystick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/circulio"
+            android:src="@drawable/joystick_background"
             android:visibility="invisible"
             tools:visibility="invisible"
             android:layout_marginRight="-30dp"/>
-        <ImageButton
+
+        <ImageView
             android:id="@+id/joyStick_Mini"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="250dp"
-            android:src="@drawable/a10000"
-            android:visibility="invisible"
-            tools:visibility="invisible"
             android:layout_marginRight="-50dp"
-            />
+            android:src="@drawable/joystick_mark"
+            android:tint="#00FFFFFF"
+            android:visibility="invisible"
+            tools:visibility="invisible" />
 
 
 

@@ -5,7 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="dadm.scaffold.counter.GameFragment">
+    tools:context="dadm.scaffold.counter.GameFragment"
+    android:background="@drawable/backgroundrepeat"
+    >
+
 
     <dadm.scaffold.engine.StandardGameView
         android:id="@+id/gameView"
