@@ -111,10 +111,16 @@ public class SpaceShipPlayer extends Sprite {
                 gameEngine.removeGameObject(this);
             }
             gameEngine.llamarRunnableVidas(lifes);
-            //gameEngine.stopGame();
             Asteroid a = (Asteroid) otherObject;
             a.removeObject(gameEngine);
             gameEngine.onGameEvent(GameEvent.SpaceshipHit);
+        }
+        if(otherObject instanceof Revive){
+            lifes++;
+            gameEngine.llamarRunnableVidas(lifes);
+            Revive r = (Revive) otherObject;
+            r.removeObject(gameEngine);
+            gameEngine.onGameEvent(GameEvent.SpaceshipHit); //CAMBIAR POR SONIDO CURACIÓN
         }
     }
 }
