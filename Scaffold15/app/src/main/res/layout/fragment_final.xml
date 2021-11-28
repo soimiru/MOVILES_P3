@@ -6,19 +6,18 @@
     >
 
     <TextView
+        android:id="@+id/WinOrLooseTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="GAME OVER"
-        android:gravity="center"
-        android:textColor="@color/colorText"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="80dp"
         android:background="@color/colorText"
         android:backgroundTint="#FFFFFF"
-        android:textSize="30dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginTop="30dp"
-        >
-    </TextView>
+        android:gravity="center"
+        android:text="GAME OVER"
+        android:textColor="@color/colorText"
+        android:textSize="30dp"></TextView>
 
     <TextView
         android:id="@+id/text_resultados"

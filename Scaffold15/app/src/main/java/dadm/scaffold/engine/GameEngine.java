@@ -33,6 +33,7 @@ public class GameEngine {
     public int enemigosEliminados = 0;
     public int puntos = 0;
     public int indexPlayer;
+    public boolean win = false;
 
     public ArrayList<PlayerAvatar> listAvatars = new ArrayList<>();
 
@@ -220,7 +221,8 @@ public class GameEngine {
         puntos = p;
         mainActivity.runOnUiThread(drawTextPoints);
     }
-    public void llamarRunnableGameOver(){
+    public void llamarRunnableGameOver(boolean wins){
+        win = wins;
         mainActivity.runOnUiThread(gameOver);
     }
 
@@ -248,7 +250,7 @@ public class GameEngine {
     public final Runnable gameOver = new Runnable() {
         @Override
         public void run() {
-            ((ScaffoldActivity) mainActivity).endScreen(puntos, enemigosEliminados);
+            ((ScaffoldActivity) mainActivity).endScreen(puntos, enemigosEliminados, win);
         }
     };
 

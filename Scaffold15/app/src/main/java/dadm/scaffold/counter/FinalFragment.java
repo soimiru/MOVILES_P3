@@ -12,8 +12,8 @@ import dadm.scaffold.R;
 import dadm.scaffold.ScaffoldActivity;
 
 public class FinalFragment extends BaseFragment implements View.OnClickListener {
-
-    public TextView resultados;
+    public boolean win;
+    public TextView resultados, finalText;
     public int puntos, enemigos = 0;
 
     public FinalFragment() {
@@ -32,6 +32,10 @@ public class FinalFragment extends BaseFragment implements View.OnClickListener 
 
         view.findViewById(R.id.btn_aceptar).setOnClickListener(this);
         resultados = view.findViewById(R.id.text_resultados);
+        finalText = view.findViewById(R.id.WinOrLooseTv);
+        if (win==true){
+            finalText.setText("YOU WIN");
+        }
 
         resultados.setText("RESULTADOS:\nHas eliminado "+ enemigos+" enemigos.\nHas conseguido "+puntos+" puntos.");
     }

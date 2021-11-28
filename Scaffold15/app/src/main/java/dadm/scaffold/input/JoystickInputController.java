@@ -73,11 +73,9 @@ public class JoystickInputController extends InputController {
 
                 if (horizontalFactor > 1) {
                     horizontalFactor = 1;
-
                 }
                 else if (horizontalFactor < -1) {
                     horizontalFactor = -1;
-
                 }
                 verticalFactor = (event.getY(0) - startingPositionY) / maxDistance;
                 if (verticalFactor > 1) { //Abajo

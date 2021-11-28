@@ -110,7 +110,8 @@ public class SpaceShipPlayer extends Sprite {
                 lifes--;
             }
             else{
-                gameEngine.llamarRunnableGameOver();
+                boolean win = false;
+                gameEngine.llamarRunnableGameOver(win);
                 gameEngine.removeGameObject(this);
             }
             gameEngine.llamarRunnableVidas(lifes);

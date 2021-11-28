@@ -56,6 +56,7 @@ public class Bullet extends Sprite {
             enemigosAux = parent.enemiesDown+1;
             parent.points = puntosAux;
             parent.enemiesDown = enemigosAux;
+
             gameEngine.llamarRunnablePuntos(puntosAux);
             gameEngine.llamarRunnableEnemigos(enemigosAux);
 
@@ -63,7 +64,11 @@ public class Bullet extends Sprite {
             Asteroid a = (Asteroid) otherObject;
             a.removeObject(gameEngine);
             gameEngine.onGameEvent(GameEvent.AsteroidHit);
-
+            //Si matas 20 enemigos llama a la pantalla de final mandándole un True ya que has ganado
+            if (enemigosAux>=20){
+                boolean win = true;
+                gameEngine.llamarRunnableGameOver(win);
+            }
         }
     }
 }

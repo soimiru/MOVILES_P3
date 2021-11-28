@@ -44,13 +44,15 @@ public class ScaffoldActivity extends AppCompatActivity {
     }
 
     //CARGA EL FRAGMENTO CON LA INFORMACIÓN DE LA PARTIDA
-    public void endScreen(int po, int en){
+    public void endScreen(int po, int en, boolean win){
+
         //Paramos el juego
         GameFragment fragment = (GameFragment) getSupportFragmentManager().findFragmentByTag(TAG_FRAGMENT);
         fragment.invokeStopGame();
 
         //Creamos el fragmento de la pantalla final
         FinalFragment fg = new FinalFragment();
+        fg.win = win;
         fg.puntos = po;
         fg.enemigos = en;
         navigateToFragment(fg);
