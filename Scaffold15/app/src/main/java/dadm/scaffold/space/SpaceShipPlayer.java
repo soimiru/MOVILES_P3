@@ -129,7 +129,7 @@ public class SpaceShipPlayer extends Sprite {
             gameEngine.llamarRunnableVidas(lifes);
             Revive r = (Revive) otherObject;
             r.removeObject(gameEngine);
-            gameEngine.onGameEvent(GameEvent.SpaceshipHit); //CAMBIAR POR SONIDO CURACIÓN
+            gameEngine.onGameEvent(GameEvent.RevivirHit); //CAMBIAR POR SONIDO CURACIÓN
         }
     }
 
