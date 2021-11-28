@@ -5,18 +5,27 @@
     android:background="@drawable/backgroundrepeatmainmenu"
     >
 
-    <TextView
-        android:layout_gravity="center_horizontal"
-        style="@android:style/TextAppearance.DeviceDefault.Large"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/game_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:paddingTop="10dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center_horizontal">
+
+        </ImageView>
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="160dp"
         android:gravity="center_horizontal"
         android:background="#C1FFFFFF"
         android:layout_marginLeft="100dp"
@@ -48,7 +57,8 @@
         android:id="@+id/btn_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:layout_gravity="center_vertical|center_horizontal"
         android:backgroundTint="@android:color/white"
         android:text="@string/start" />
 

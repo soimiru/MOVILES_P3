@@ -15,7 +15,7 @@
         android:background="@color/colorText"
         android:backgroundTint="#FFFFFF"
         android:gravity="center"
-        android:text="GAME OVER"
+        android:text="YOU'VE BEEN CAUGHT"
         android:textColor="@color/colorText"
         android:textSize="30dp"></TextView>
 
@@ -42,7 +42,7 @@
         android:layout_marginTop="200dp"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
-        android:text="ACEPTAR"
+        android:text="CONFIRM"
         android:textSize="25dp"
         ></Button>
 

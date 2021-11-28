@@ -34,10 +34,10 @@ public class FinalFragment extends BaseFragment implements View.OnClickListener 
         resultados = view.findViewById(R.id.text_resultados);
         finalText = view.findViewById(R.id.WinOrLooseTv);
         if (win==true){
-            finalText.setText("YOU WIN");
+            finalText.setText("YOU ESCAPE");
         }
 
-        resultados.setText("RESULTADOS:\nHas eliminado "+ enemigos+" enemigos.\nHas conseguido "+puntos+" puntos.");
+        resultados.setText("RESULTS:\nYou have eliminated "+ enemigos+" Poke Ball.\nYou've got "+puntos+" points.");
     }
 
     @Override
