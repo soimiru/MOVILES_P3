@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="250dp"
-            android:src="@drawable/a10000" />
+            android:src="@drawable/fire_up" />
 
 
         <ImageView

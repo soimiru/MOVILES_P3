@@ -2,6 +2,7 @@ package dadm.scaffold.input;
 
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import dadm.scaffold.R;
@@ -9,6 +10,8 @@ import dadm.scaffold.R;
 public class JoystickInputController extends InputController {
 
     private ImageView joystickInterno, joystickMini;
+    private ImageButton fireButton;
+
 
     private float startingPositionX;
     private float startingPositionY;
@@ -21,6 +24,7 @@ public class JoystickInputController extends InputController {
         view.findViewById(R.id.joyStick_Touch).setOnTouchListener(new FireButtonTouchListener());
         joystickInterno = view.findViewById(R.id.imageJoystick);
         joystickMini = view.findViewById(R.id.joyStick_Mini);
+        fireButton = view.findViewById(R.id.joyStick_Touch);
         double pixelFactor = view.getHeight() / 400d;
         maxDistance = 50*pixelFactor;
         tipoFuego = 0;
@@ -102,6 +106,13 @@ public class JoystickInputController extends InputController {
             }
             else if (action == MotionEvent.ACTION_UP) {
                 tipoFuego++;
+                if (tipoFuego % 3== 0){
+                    fireButton.setImageResource(R.drawable.fire_up);
+                }else if(tipoFuego%3 == 1){
+                    fireButton.setImageResource(R.drawable.fire_right);
+                }else if(tipoFuego%3 == 2){
+                    fireButton.setImageResource(R.drawable.fire_left);
+                }
                 isFiring = false;
             }
             return true;
