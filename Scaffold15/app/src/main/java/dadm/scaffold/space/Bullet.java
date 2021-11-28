@@ -11,7 +11,8 @@ public class Bullet extends Sprite {
     private double speedFactor;
 
     private SpaceShipPlayer parent;
-
+    protected double speedX;
+    protected double speedY;
     public int puntosAux, enemigosAux = 0;
 
     public Bullet(GameEngine gameEngine){
@@ -25,7 +26,9 @@ public class Bullet extends Sprite {
 
     @Override
     public void onUpdate(long elapsedMillis, GameEngine gameEngine) {
-        positionY += speedFactor * elapsedMillis;
+        positionY += speedY * elapsedMillis;
+        positionX += speedX * elapsedMillis;
+        //positionX += speedFactor * elapsedMillis;
         if (positionY < -height) {
             gameEngine.removeGameObject(this);
             // And return it to the pool
@@ -34,10 +37,25 @@ public class Bullet extends Sprite {
     }
 
 
-    public void init(SpaceShipPlayer parentPlayer, double initPositionX, double initPositionY) {
+    public void init(SpaceShipPlayer parentPlayer, double initPositionX, double initPositionY, int tipoFuego) {
+        switch (tipoFuego){
+            case 0:
+                speedX = speedFactor * 0;
+                speedY = speedFactor * 0.5;
+                break;
+            case 1:
+                speedX = speedFactor * -0.5;
+                speedY = speedFactor * 0.5;
+                break;
+            case 2:
+                speedX = speedFactor * 0.5;
+                speedY = speedFactor * 0.5;
+                break;
+        }
         positionX = initPositionX - width/2;
         positionY = initPositionY - height/2;
         parent = parentPlayer;
+
     }
 
     private void removeObject(GameEngine gameEngine) {

@@ -15,7 +15,7 @@ import dadm.scaffold.sound.GameEvent;
 public class SpaceShipPlayer extends Sprite {
 
     private static final int INITIAL_BULLET_POOL_AMOUNT = 6;
-    private static final long TIME_BETWEEN_BULLETS = 250;
+    private static final long TIME_BETWEEN_BULLETS = 500;
     List<Bullet> bullets = new ArrayList<Bullet>();
     private long timeSinceLastFire;
 
@@ -23,6 +23,7 @@ public class SpaceShipPlayer extends Sprite {
     public int enemiesDown = 0;
     public int points = 0;
 
+    private int tipoFuego = 0;
     private int maxX;
     private int maxY;
     private double speedFactor;
@@ -85,15 +86,19 @@ public class SpaceShipPlayer extends Sprite {
             positionY = maxY;
         }
     }
-
+//gameEngine.theInputController.isFiring &&
     private void checkFiring(long elapsedMillis, GameEngine gameEngine) {
-        if (gameEngine.theInputController.isFiring && timeSinceLastFire > TIME_BETWEEN_BULLETS) {
+        if (timeSinceLastFire > TIME_BETWEEN_BULLETS) {
             Bullet bullet = getBullet();
             if (bullet == null) {
                 return;
             }
+            tipoFuego = gameEngine.theInputController.tipoFuego;
+            if (tipoFuego >2){
+                tipoFuego = tipoFuego - 3;
+            }
             //bullet.init(this, positionX + width/2, positionY);
-            bullet.init(this, positionX + (width/2)/2, positionY);
+            bullet.init(this, positionX + (width/2)/2, positionY, tipoFuego);
             gameEngine.addGameObject(bullet);
             timeSinceLastFire = 0;
             gameEngine.onGameEvent(GameEvent.LaserFired);

@@ -13,6 +13,7 @@ public class JoystickInputController extends InputController {
     private float startingPositionX;
     private float startingPositionY;
 
+
     private final double maxDistance;
 
     public JoystickInputController(View view) {
@@ -22,6 +23,7 @@ public class JoystickInputController extends InputController {
         joystickMini = view.findViewById(R.id.joyStick_Mini);
         double pixelFactor = view.getHeight() / 400d;
         maxDistance = 50*pixelFactor;
+        tipoFuego = 0;
     }
 
     private class JoystickTouchListener implements View.OnTouchListener {
@@ -99,6 +101,7 @@ public class JoystickInputController extends InputController {
                 isFiring = true;
             }
             else if (action == MotionEvent.ACTION_UP) {
+                tipoFuego++;
                 isFiring = false;
             }
             return true;
