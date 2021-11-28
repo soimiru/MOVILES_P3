@@ -28,6 +28,8 @@ public class GameFragment extends BaseFragment implements View.OnClickListener {
     public TextView enemiesDownText;
     public TextView pointsText;
 
+    public int indexAvatar;
+
     public GameFragment() {
     }
 
@@ -56,6 +58,7 @@ public class GameFragment extends BaseFragment implements View.OnClickListener {
                 observer.removeOnGlobalLayoutListener(this);
                 GameView gameView = (GameView) getView().findViewById(R.id.gameView);
                 theGameEngine = new GameEngine(getActivity(), gameView);
+                theGameEngine.indexPlayer = indexAvatar;
                 theGameEngine.setSoundManager(getScaffoldActivity().getSoundManager());
                 theGameEngine.setTheInputController(new JoystickInputController(getView()));
                 theGameEngine.addGameObject(new SpaceShipPlayer(theGameEngine));

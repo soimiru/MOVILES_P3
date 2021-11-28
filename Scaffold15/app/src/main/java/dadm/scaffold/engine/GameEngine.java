@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import dadm.scaffold.R;
 import dadm.scaffold.ScaffoldActivity;
 import dadm.scaffold.input.InputController;
 import dadm.scaffold.sound.GameEvent;
@@ -31,6 +32,9 @@ public class GameEngine {
     public int vidasPlayer = 0;
     public int enemigosEliminados = 0;
     public int puntos = 0;
+    public int indexPlayer;
+
+    public ArrayList<PlayerAvatar> listAvatars = new ArrayList<>();
 
     private SoundManager soundManager;
 
@@ -56,6 +60,8 @@ public class GameEngine {
         quadTree.setArea(new Rect(0, 0, width, height));
 
         this.pixelFactor = this.height / 400d;
+
+        createListSpritesPlayer();
     }
 
     public void setTheInputController(InputController inputController) {
@@ -190,6 +196,13 @@ public class GameEngine {
         // We notify all the GameObjects
         // Also the sound manager
         soundManager.playSoundForGameEvent(gameEvent);
+    }
+
+
+    public void createListSpritesPlayer(){
+        listAvatars.add(new PlayerAvatar(0, R.drawable.dragonite1, "Dragonite"));
+        listAvatars.add(new PlayerAvatar(1, R.drawable.snorlax1, "Snorlax"));
+        listAvatars.add(new PlayerAvatar(2, R.drawable.rapidash1, "Rapidash"));
     }
 
 

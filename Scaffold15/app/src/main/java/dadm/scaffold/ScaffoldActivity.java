@@ -35,9 +35,12 @@ public class ScaffoldActivity extends AppCompatActivity {
         return soundManager;
     }
 
-    public void startGame() {
+    public void startGame(int indexPlayer) {
+        //IndexPlayer nos sirve para cambiar el sprite del jugador
         // Navigate the the game fragment, which makes the start automatically
-        navigateToFragment( new GameFragment());
+        GameFragment gf = new GameFragment();
+        gf.indexAvatar = indexPlayer;
+        navigateToFragment(gf);
     }
 
     //CARGA EL FRAGMENTO CON LA INFORMACIÓN DE LA PARTIDA

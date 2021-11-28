@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dadm.scaffold.R;
+import dadm.scaffold.counter.MainMenuFragment;
 import dadm.scaffold.engine.GameEngine;
+import dadm.scaffold.engine.PlayerAvatar;
 import dadm.scaffold.engine.ScreenGameObject;
 import dadm.scaffold.engine.Sprite;
 import dadm.scaffold.input.InputController;
@@ -27,7 +29,8 @@ public class SpaceShipPlayer extends Sprite {
 
 
     public SpaceShipPlayer(GameEngine gameEngine){
-        super(gameEngine, R.drawable.dragonite1);
+        //super(gameEngine, R.drawable.dragonite1);
+        super(gameEngine, gameEngine.listAvatars.get(gameEngine.indexPlayer).getIdDrawable());  //Cogemos el avatar seleccionado
         speedFactor = pixelFactor * 100d / 1000d; // We want to move at 100px per second on a 400px tall screen
         maxX = gameEngine.width - width;
         maxY = gameEngine.height - height/2;    //CAMBIADO
@@ -123,4 +126,5 @@ public class SpaceShipPlayer extends Sprite {
             gameEngine.onGameEvent(GameEvent.SpaceshipHit); //CAMBIAR POR SONIDO CURACIÓN
         }
     }
+
 }
