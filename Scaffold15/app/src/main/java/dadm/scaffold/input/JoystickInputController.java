@@ -45,26 +45,48 @@ public class JoystickInputController extends InputController {
                 // Get the proportion to the max
                 joystickMini.setVisibility(View.VISIBLE);
                 horizontalFactor = (event.getX(0) - startingPositionX) / maxDistance;
+                verticalFactor = (event.getY(0) - startingPositionY) / maxDistance;
+                double movedX = event.getX(0);
+                double movedY = event.getY(0);
+
+                if (movedX > startingPositionX){
+                    joystickMini.setX(startingPositionX + 50);
+                }else if(movedX < startingPositionX){
+                    joystickMini.setX(startingPositionX - 100);
+                }
+                //else if (movedX == startingPositionX){
+                 //   joystickMini.setX(startingPositionX);
+                //}
+                if (movedY > startingPositionY){
+                    joystickMini.setY(startingPositionY + 50);
+                }else if(movedY < startingPositionY){
+                    joystickMini.setY(startingPositionY - 100);
+                }
+
+                if((movedX - startingPositionX) > - 30 && (movedX - startingPositionX) < 30){
+                    joystickMini.setX(startingPositionX - 25);
+                }
+                if((movedY -startingPositionY)> - 30 && (movedY - startingPositionY) < 30){
+                    joystickMini.setY(startingPositionY - 25);
+                }
+
+
                 if (horizontalFactor > 1) {
                     horizontalFactor = 1;
-                    joystickMini.setX(event.getX(0) + 50);
-                    joystickMini.setY(event.getY(0));
+
                 }
                 else if (horizontalFactor < -1) {
                     horizontalFactor = -1;
-                    joystickMini.setX(event.getX(0) - 50);
-                    joystickMini.setY(event.getY(0));
+
                 }
                 verticalFactor = (event.getY(0) - startingPositionY) / maxDistance;
                 if (verticalFactor > 1) { //Abajo
                     verticalFactor = 1;
-                    joystickMini.setX(event.getX(0));
-                    joystickMini.setY(event.getY(0) - 50);
+
                 }
                 else if (verticalFactor < -1) { //Arriba
                     verticalFactor = -1;
-                    joystickMini.setX(event.getX(0));
-                    joystickMini.setY(event.getY(0) + 50);
+
                 }
             }
             return true;
